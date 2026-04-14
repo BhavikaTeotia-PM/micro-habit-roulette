@@ -40,7 +40,7 @@ Micro-Habit Roulette helps users build better habits through quick, 2-minute act
 
 ## Getting Started
 
-### Prototype live at `https://yourusername.github.io/repo-name](https://bhavikateotia-pm.github.io/micro-habit-roulette/`
+### Prototype live at (https://bhavikateotia-pm.github.io/micro-habit-roulette/)
 
 ## 📁 Project Structure
 
