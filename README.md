@@ -40,41 +40,7 @@ Micro-Habit Roulette helps users build better habits through quick, 2-minute act
 
 ## Getting Started
 
-### Option 1: Open Directly
-Simply open `index.html` in any modern web browser:
-
-```bash
-# macOS
-open index.html
-
-# Windows
-start index.html
-
-# Linux
-xdg-open index.html
-```
-
-### Option 2: Local Server (Recommended)
-For the best experience, run a local server:
-
-```bash
-# Using Python 3
-python -m http.server 8000
-
-# Using Node.js (if you have npx)
-npx serve
-
-# Using PHP
-php -S localhost:8000
-```
-
-Then open `http://localhost:8000` in your browser.
-
-### Option 3: Deploy to GitHub Pages
-1. Push this folder to a GitHub repository
-2. Go to Settings → Pages
-3. Select "Deploy from a branch" → main → / (root)
-4. Your prototype will be live at `https://yourusername.github.io/repo-name`
+### Prototype live at `https://yourusername.github.io/repo-name](https://bhavikateotia-pm.github.io/micro-habit-roulette/`
 
 ## 📁 Project Structure
 
@@ -89,7 +55,7 @@ micro-habit-roulette/
 └── README.md           # This file
 ```
 
-## 🎨 Design System
+## Design System
 
 ### Colors
 | Name | Hex | Usage |
