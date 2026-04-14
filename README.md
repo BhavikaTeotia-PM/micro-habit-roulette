@@ -1,19 +1,19 @@
-# 🎯 Micro-Habit Roulette
+# Micro-Habit Roulette
 
 A mobile-first interactive prototype for a micro-habit building app. Built with HTML, CSS, and JavaScript — no frameworks required.
 
 ![Micro-Habit Roulette](https://img.shields.io/badge/version-1.0.0-green) ![License](https://img.shields.io/badge/license-MIT-blue)
 
-## 📱 Overview
+## Overview
 
 Micro-Habit Roulette helps users build better habits through quick, 2-minute actions. The app eliminates decision fatigue by randomly selecting science-backed micro-habits across four categories:
 
-- 💪 **Strength** - Quick exercises like squats, push-ups, planks
-- 🏃 **Movement** - Stretches, walks, mobility exercises  
-- 🌬 **Breathing** - Box breathing, 4-7-8 technique, deep breaths
-- 🧘 **Mindfulness** - Body scans, gratitude moments, grounding exercises
+- **Strength** - Quick exercises like squats, push-ups, planks
+- **Movement** - Stretches, walks, mobility exercises  
+- **Breathing** - Box breathing, 4-7-8 technique, deep breaths
+- **Mindfulness** - Body scans, gratitude moments, grounding exercises
 
-## ✨ Features
+## Features
 
 ### Core Functionality
 - **One-tap habit selection** - Tap the Atomic Action button to get a random habit
@@ -32,13 +32,13 @@ Micro-Habit Roulette helps users build better habits through quick, 2-minute act
 6. **Settings** - Preferences, notifications, and app settings
 
 ### Technical Features
-- 📱 Mobile-first responsive design (390×844px viewport)
-- 💾 LocalStorage persistence for stats and preferences
-- ♿ WCAG AA accessible (contrast ratios, 48dp tap targets)
-- 🎨 Figma-accurate design implementation
-- ⚡ No build tools required - pure HTML/CSS/JS
+- Mobile-first responsive design (390×844px viewport)
+- LocalStorage persistence for stats and preferences
+- WCAG AA accessible (contrast ratios, 48dp tap targets)
+- Figma-accurate design implementation
+- No build tools required - pure HTML/CSS/JS
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Option 1: Open Directly
 Simply open `index.html` in any modern web browser:
@@ -107,7 +107,7 @@ micro-habit-roulette/
 - **Font**: Inter (Google Fonts)
 - **Weights**: 400 (Regular), 500 (Medium), 600 (SemiBold), 700 (Bold), 800 (ExtraBold)
 
-## 📋 Requirements Compliance
+## Requirements Compliance
 
 This prototype implements the requirements from the Micro-Habit Roulette requirements document:
 
@@ -125,7 +125,7 @@ This prototype implements the requirements from the Micro-Habit Roulette require
 | Local-first storage | ✅ LocalStorage |
 | No account required | ✅ Anonymous |
 
-## 🔧 Customization
+## Customization
 
 ### Adding New Habits
 Edit `js/habits.js` and add to the `HABITS` array:
@@ -153,7 +153,7 @@ Edit the CSS variables in `css/styles.css`:
 }
 ```
 
-## 📱 Browser Support
+## Browser Support
 
 - ✅ Chrome (recommended)
 - ✅ Safari
@@ -161,10 +161,4 @@ Edit the CSS variables in `css/styles.css`:
 - ✅ Edge
 - ✅ Mobile browsers (iOS Safari, Chrome for Android)
 
-## 📄 License
-
-MIT License - feel free to use this for your projects!
-
----
-
-Built with ❤️ for the Micro-Habit Roulette assignment | April 2026
+Built for PDRE assignment | April 2026
