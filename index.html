@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Micro-Habit Roulette</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Screen 1: Home -->
+        <div class="screen screen-home active" id="screen-home">
+            <div class="screen-content">
+                <!-- Header -->
+                <div class="home-header">
+                    <h1 class="greeting">Good morning ☀️</h1>
+                    <p class="subtitle">Ready for your 2-minute win?</p>
+                </div>
+
+                <!-- Streak Banner -->
+                <div class="streak-banner">
+                    <span>🔥 <span id="streak-text">7-day streak</span> — keep it going!</span>
+                </div>
+
+                <!-- Atomic Action Button -->
+                <div class="atomic-action-container">
+                    <button class="atomic-action-btn" id="atomic-action-btn">
+                        <div class="inner-ring"></div>
+                        <span class="bolt-icon">⚡</span>
+                        <span class="action-label">ATOMIC ACTION</span>
+                    </button>
+                    <p class="tap-hint">Tap to get your habit</p>
+                </div>
+
+                <!-- Stats Card -->
+                <div class="stats-card">
+                    <div class="stat-item">
+                        <span class="stat-label">Total wins</span>
+                        <span class="stat-value" id="total-wins">43</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-label">Today's habits</span>
+                        <span class="stat-value" id="today-habits">2 / 3</span>
+                    </div>
+                </div>
+
+                <!-- Category Chips -->
+                <div class="category-chips">
+                    <div class="chip chip-movement">🏃 Movement</div>
+                    <div class="chip chip-breathing">🌬 Breathing</div>
+                    <div class="chip chip-mindful">🧘 Mindful</div>
+                    <div class="chip chip-strength">💪 Strength</div>
+                </div>
+            </div>
+
+            <!-- Bottom Navigation -->
+            <nav class="bottom-nav">
+                <button class="nav-item active" data-screen="home">
+                    <span class="nav-icon">🏠</span>
+                    <span class="nav-label">Home</span>
+                </button>
+                <button class="nav-item" data-screen="progress">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-label">Progress</span>
+                </button>
+                <button class="nav-item" data-screen="settings">
+                    <span class="nav-icon">⚙️</span>
+                    <span class="nav-label">Settings</span>
+                </button>
+            </nav>
+        </div>
+
+        <!-- Screen 2: Roulette -->
+        <div class="screen screen-roulette" id="screen-roulette">
+            <div class="screen-content">
+                <!-- Header -->
+                <div class="roulette-header">
+                    <h2>Finding your habit...</h2>
+                    <button class="back-btn" id="roulette-back">←</button>
+                </div>
+
+                <!-- Roulette Circle -->
+                <div class="roulette-container">
+                    <div class="outer-circle">
+                        <div class="inner-circle">
+                            <span class="target-icon">🎯</span>
+                            <span class="selecting-text">Selecting...</span>
+                        </div>
+                        <!-- Orbiting Dots -->
+                        <div class="orbit-dot dot-1"></div>
+                        <div class="orbit-dot dot-2"></div>
+                        <div class="orbit-dot dot-3"></div>
+                        <div class="orbit-dot dot-4"></div>
+                    </div>
+                </div>
+
+                <!-- Category Icons -->
+                <div class="category-icons">
+                    <div class="cat-icon cat-movement">🏃</div>
+                    <div class="cat-icon cat-breathing">🌬</div>
+                    <div class="cat-icon cat-mindful">🧘</div>
+                    <div class="cat-icon cat-strength">💪</div>
+                </div>
+                <p class="category-row-label">Movement · Breathing · Mindfulness · Strength</p>
+
+                <!-- Progress -->
+                <p class="spin-progress-label">Spinning to find your perfect habit...</p>
+                <div class="spin-progress-bar">
+                    <div class="spin-progress-fill" id="spin-progress"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 3: Task -->
+        <div class="screen screen-task" id="screen-task">
+            <div class="screen-content">
+                <!-- Category Badge -->
+                <div class="task-badge" id="task-badge">
+                    <span id="task-badge-text">💪 Strength</span>
+                </div>
+
+                <!-- Task Card -->
+                <div class="task-card">
+                    <h2 class="task-name" id="task-name">10 Air Squats</h2>
+                    <p class="task-desc" id="task-desc">Stand, squat until thighs are parallel, push through heels to stand. Repeat. No equipment needed.</p>
+                    
+                    <div class="task-divider"></div>
+                    
+                    <div class="timer-section">
+                        <span class="timer-label">Timer</span>
+                        <span class="timer-value" id="timer-value">2:00 left</span>
+                    </div>
+                    <div class="timer-bar">
+                        <div class="timer-fill" id="timer-fill"></div>
+                    </div>
+
+                    <button class="done-btn" id="done-btn">Mark as done ✓</button>
+                </div>
+
+                <!-- Science Fact Card -->
+                <div class="fact-card">
+                    <span class="fact-icon">🧠</span>
+                    <p class="fact-text" id="fact-text">Squats activate over 300 muscles and boost dopamine in under 60 seconds — even a short set improves mood and focus.</p>
+                </div>
+
+                <!-- Queued Habits -->
+                <div class="queued-section">
+                    <h3 class="queued-label">Other habits queued today</h3>
+                    <div class="queued-list" id="queued-list">
+                        <div class="queued-item">
+                            <span class="queued-icon">🌬</span>
+                            <span class="queued-name">Box Breathing</span>
+                            <span class="queued-check">✓</span>
+                        </div>
+                        <div class="queued-item">
+                            <span class="queued-icon">🏃</span>
+                            <span class="queued-name">Desk Stretch</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Navigation -->
+            <nav class="bottom-nav">
+                <button class="nav-item" data-screen="home">
+                    <span class="nav-icon">🏠</span>
+                    <span class="nav-label">Home</span>
+                </button>
+                <button class="nav-item" data-screen="progress">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-label">Progress</span>
+                </button>
+                <button class="nav-item" data-screen="settings">
+                    <span class="nav-icon">⚙️</span>
+                    <span class="nav-label">Settings</span>
+                </button>
+            </nav>
+        </div>
+
+        <!-- Screen 4: Win + Dashboard -->
+        <div class="screen screen-win" id="screen-win">
+            <div class="screen-content">
+                <!-- Confetti -->
+                <div class="confetti-container" id="confetti-container"></div>
+
+                <!-- Celebration -->
+                <div class="celebration">
+                    <span class="trophy">🎉</span>
+                    <h1 class="win-title">Micro-win logged!</h1>
+                    <p class="win-subtitle" id="win-subtitle">10 Air Squats · 1 min 12 sec</p>
+                </div>
+
+                <!-- Progress Dots -->
+                <div class="progress-dots">
+                    <span class="dot filled"></span>
+                    <span class="dot filled"></span>
+                    <span class="dot filled"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+
+                <!-- Streak Banner -->
+                <div class="win-streak-banner">
+                    <span>🔥 Day <span id="win-streak-day">8</span> streak — your best yet!</span>
+                </div>
+
+                <!-- Stats Card -->
+                <div class="win-stats-card">
+                    <div class="stat-item">
+                        <span class="stat-label">Total wins</span>
+                        <span class="stat-value stat-large" id="win-total">44</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-label">Day streak 🔥</span>
+                        <span class="stat-value stat-large" id="win-streak">8</span>
+                    </div>
+                </div>
+
+                <!-- Activity Heatmap -->
+                <div class="heatmap-section">
+                    <h3 class="heatmap-label">Activity — last 2 weeks</h3>
+                    <div class="heatmap-grid" id="heatmap-grid"></div>
+                </div>
+
+                <!-- Recent Wins -->
+                <div class="recent-section">
+                    <h3 class="recent-label">Recent wins</h3>
+                    <div class="recent-list" id="recent-list">
+                        <div class="recent-item">
+                            <span class="recent-icon">💪</span>
+                            <span class="recent-name">10 Air Squats</span>
+                            <span class="recent-time">2m ago</span>
+                        </div>
+                        <div class="recent-item">
+                            <span class="recent-icon">🌬</span>
+                            <span class="recent-name">Box Breathing</span>
+                            <span class="recent-time">3h ago</span>
+                        </div>
+                        <div class="recent-item">
+                            <span class="recent-icon">🏃</span>
+                            <span class="recent-name">Desk Stretch</span>
+                            <span class="recent-time">Yesterday</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spin Again Button -->
+                <button class="spin-again-btn" id="spin-again-btn">Spin again ↻</button>
+            </div>
+        </div>
+
+        <!-- Screen 5: Settings -->
+        <div class="screen screen-settings" id="screen-settings">
+            <div class="screen-content">
+                <!-- Header -->
+                <div class="settings-header">
+                    <h2>Settings</h2>
+                </div>
+
+                <!-- Profile Card -->
+                <div class="profile-card">
+                    <div class="avatar">👤</div>
+                    <div class="profile-info">
+                        <span class="profile-name">Anonymous User</span>
+                        <span class="profile-sub">No account · All data stays on-device</span>
+                    </div>
+                </div>
+
+                <!-- Settings Sections -->
+                <div class="settings-sections">
+                    <!-- Habit Preferences -->
+                    <div class="settings-section">
+                        <h4 class="section-heading">Habit Preferences</h4>
+                        <div class="section-card">
+                            <div class="setting-item">
+                                <span class="setting-icon">🎯</span>
+                                <span class="setting-label">Default habit duration</span>
+                                <span class="setting-value">2 minutes</span>
+                                <span class="chevron">›</span>
+                            </div>
+                            <div class="setting-divider"></div>
+                            <div class="setting-item">
+                                <span class="setting-icon">📚</span>
+                                <span class="setting-label">Habit categories</span>
+                                <span class="setting-value">All enabled</span>
+                                <span class="chevron">›</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notifications -->
+                    <div class="settings-section">
+                        <h4 class="section-heading">Notifications</h4>
+                        <div class="section-card">
+                            <div class="setting-item">
+                                <span class="setting-icon">🔔</span>
+                                <span class="setting-label">Daily nudge</span>
+                                <div class="toggle active" id="toggle-nudge">
+                                    <div class="toggle-thumb"></div>
+                                </div>
+                            </div>
+                            <div class="setting-divider"></div>
+                            <div class="setting-item">
+                                <span class="setting-icon">⏰</span>
+                                <span class="setting-label">Reminder time</span>
+                                <span class="setting-value">9:00 AM</span>
+                                <span class="chevron">›</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- App -->
+                    <div class="settings-section">
+                        <h4 class="section-heading">App</h4>
+                        <div class="section-card">
+                            <div class="setting-item">
+                                <span class="setting-icon">🌙</span>
+                                <span class="setting-label">Dark mode</span>
+                                <div class="toggle" id="toggle-dark">
+                                    <div class="toggle-thumb"></div>
+                                </div>
+                            </div>
+                            <div class="setting-divider"></div>
+                            <div class="setting-item">
+                                <span class="setting-icon">🔄</span>
+                                <span class="setting-label setting-danger">Reset streak data</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Version -->
+                <p class="version-text">Micro-Habit Roulette v1.0 · Built with ❤️</p>
+            </div>
+
+            <!-- Bottom Navigation -->
+            <nav class="bottom-nav">
+                <button class="nav-item" data-screen="home">
+                    <span class="nav-icon">🏠</span>
+                    <span class="nav-label">Home</span>
+                </button>
+                <button class="nav-item" data-screen="progress">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-label">Progress</span>
+                </button>
+                <button class="nav-item active" data-screen="settings">
+                    <span class="nav-icon">⚙️</span>
+                    <span class="nav-label">Settings</span>
+                </button>
+            </nav>
+        </div>
+
+        <!-- Screen: Progress (Dashboard without win state) -->
+        <div class="screen screen-progress" id="screen-progress">
+            <div class="screen-content">
+                <!-- Header -->
+                <div class="progress-header">
+                    <h2>Your Progress</h2>
+                </div>
+
+                <!-- Stats Card -->
+                <div class="win-stats-card">
+                    <div class="stat-item">
+                        <span class="stat-label">Total wins</span>
+                        <span class="stat-value stat-large" id="progress-total">43</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-label">Day streak 🔥</span>
+                        <span class="stat-value stat-large" id="progress-streak">7</span>
+                    </div>
+                </div>
+
+                <!-- Activity Heatmap -->
+                <div class="heatmap-section">
+                    <h3 class="heatmap-label">Activity — last 2 weeks</h3>
+                    <div class="heatmap-grid" id="progress-heatmap-grid"></div>
+                </div>
+
+                <!-- Recent Wins -->
+                <div class="recent-section">
+                    <h3 class="recent-label">Recent wins</h3>
+                    <div class="recent-list" id="progress-recent-list">
+                        <div class="recent-item">
+                            <span class="recent-icon">🌬</span>
+                            <span class="recent-name">Box Breathing</span>
+                            <span class="recent-time">3h ago</span>
+                        </div>
+                        <div class="recent-item">
+                            <span class="recent-icon">🏃</span>
+                            <span class="recent-name">Desk Stretch</span>
+                            <span class="recent-time">Yesterday</span>
+                        </div>
+                        <div class="recent-item">
+                            <span class="recent-icon">💪</span>
+                            <span class="recent-name">Wall Sit</span>
+                            <span class="recent-time">Yesterday</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <button class="spin-again-btn" id="progress-spin-btn">Start a new habit ⚡</button>
+            </div>
+
+            <!-- Bottom Navigation -->
+            <nav class="bottom-nav">
+                <button class="nav-item" data-screen="home">
+                    <span class="nav-icon">🏠</span>
+                    <span class="nav-label">Home</span>
+                </button>
+                <button class="nav-item active" data-screen="progress">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-label">Progress</span>
+                </button>
+                <button class="nav-item" data-screen="settings">
+                    <span class="nav-icon">⚙️</span>
+                    <span class="nav-label">Settings</span>
+                </button>
+            </nav>
+        </div>
+    </div>
+
+    <script src="js/habits.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
